@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration System</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto p-4">
+        <h1 class="text-3xl font-bold text-center my-8">Event Registration</h1>
+        
+        <div class="flex justify-between mb-6">
+            <button id="showEventsBtn" class="bg-blue-500 text-white px-4 py-2 rounded">
+                View All Events
+            </button>
+            <button id="showRegistrationsBtn" class="bg-green-500 text-white px-4 py-2 rounded">
+                My Registrations
+            </button>
+        </div>
+
+        <div id="eventsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Events will be loaded here -->
+        </div>
+
+        <div id="registrationsContainer" class="hidden">
+            <h2 class="text-2xl font-bold mb-4">My Registrations</h2>
+            <div id="registrationsList" class="space-y-4">
+                <!-- Registrations will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Registration Modal -->
+        <div id="registrationModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+            <div class="bg-white rounded-lg p-6 w-full max-w-md">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold">Register for <span id="eventTitle"></span></h2>
+                    <button id="closeModalBtn" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <form id="registrationForm" class="space-y-4">
+                    <input type="hidden" id="eventId">
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Full Name</label>
+                        <input type="text" id="name" required class="w-full p-2 border rounded">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Email</label>
+                        <input type="email" id="email" required class="w-full p-2 border rounded">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Phone</label>
+                        <input type="tel" id="phone" class="w-full p-2 border rounded">
+                    </div>
+                    <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
+                        Submit Registration
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
